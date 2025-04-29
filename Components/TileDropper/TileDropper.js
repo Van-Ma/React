@@ -1,4 +1,4 @@
-import '../styles/carousel.scss';
+import '../styles/tile-dropper.scss';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
