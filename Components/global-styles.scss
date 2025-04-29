@@ -1,0 +1,123 @@
+$grey: #292C35;
+$hbtn-color: #FFD381;
+$box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.589);
+
+$color1: var(--secondary-color);
+$color2: var(--third-color);
+$font-color: var(--font-primary);
+
+$font-primary: 'Ultra', sans-serif;
+$font-secondary: 'Comico', sans-serif;
+
+$font-header: 2.5rem;
+$font-subheader: 2rem; 
+$font-p: 1.5rem;
+$font-s: 1.2rem;
+$font-weight: 100;
+
+@mixin button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+@mixin header-buttons{
+    width: 50px;
+    height: 50px;
+    box-shadow: $box-shadow;
+    border-radius: 50px;
+}
+@mixin nopm {
+    padding: 0;
+    margin: 0;
+}
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+@mixin full-screen{
+    width: 100%;
+    height: 100%;
+}
+@mixin layout{
+    width: 70%;
+    margin: 0 auto;
+    @media (max-width: 800px) {
+        width: 95%;
+    }
+}
+@mixin flex-direction{
+    flex-direction: row;
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+}
+@mixin text-align{
+    text-align: left;
+    @media (max-width: 800px) {
+        text-align: center;
+    }
+}
+@mixin header {
+    font-weight: $font-weight;
+    font-size: $font-header;
+    font-family: $font-primary;
+    margin-bottom: 50px !important;
+}
+@mixin subheader {
+    font-weight: $font-weight;
+    font-size: $font-p;
+    font-family: $font-primary;
+}
+@mixin p {
+    font-weight: $font-weight;
+    font-size: $font-s;
+    font-family: $font-secondary;
+}
+@mixin text-container{
+    h1{
+        font-family: $font-primary;
+        font-weight: $font-weight;
+        font-size: $font-header; 
+    }
+    h2{
+        font-family: $font-secondary;
+        font-size: $font-subheader;
+    }
+    h3{
+        font-family: $font-secondary;
+        font-size: $font-p;
+    }
+    p{
+        font-family: $font-secondary;
+        font-size: $font-p;
+    }
+    @media (max-width: 1000px) {
+        h1{
+            font-family: $font-primary;
+            font-weight: $font-weight;
+            font-size: 2rem; 
+        }
+        h2{
+            font-family: $font-secondary;
+            font-size: 1.5rem;
+        }
+        h3{
+            font-family: $font-secondary;
+            font-size: 1.2rem;
+        }
+        p{
+            font-family: $font-secondary;
+            font-size: 1.2rem;
+        }
+    }
+}
+@mixin border($top-left, $bottom-right) {
+    border: 4px solid transparent;
+    border-top-color: $top-left;
+    border-left-color: $top-left;
+    border-right-color: $bottom-right;
+    border-bottom-color: $bottom-right;
+}
+
