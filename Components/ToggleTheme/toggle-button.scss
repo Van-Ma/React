@@ -1,0 +1,244 @@
+@import '../styles/global-styles.scss';
+
+body {
+  background-color: $grey;
+}
+
+.daynight-button-container {
+  @include flex-center;
+  background-color: rgb(255, 255, 255);
+  width: 600px;
+  height: 215px;
+  margin: 50px auto;
+  border-radius: 125px;
+  position: relative;
+  cursor: pointer;
+  margin-top: 300px;
+  border: none;
+
+}
+
+
+.daynight-button-background {
+  width: 550px;
+  height: 175px;
+  display: flex;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  transition: background .5s ease;
+
+}
+
+
+.daynight-button-knob {
+  width: 117px;
+  height: 117px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 4;
+  background-color: #FFE693;
+  margin-left: 40px;
+  margin-top: 25px;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
+
+}
+
+.daynight-button-knob.night {
+  animation: slide .3s forwards;
+}
+
+.daynight-button-knob.day {
+  animation: slide-back .3s forwards;
+}
+
+
+
+.daynight-color.night {
+  height: 100%;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  position: absolute;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.daynight-color.day {
+  height: 100%;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  position: absolute;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05) inset;
+}
+
+
+
+.daynight-color-1.night {
+  background-color: #150d58;
+  width: 30%;
+  z-index: 1;
+  left: 0;
+}
+
+.daynight-color-2.night {
+  background-color: #251C70;
+  width: 30%;
+  left: 15%;
+  z-index: 2;
+}
+
+.daynight-color-3.night {
+  background-color: #38326D;
+  width: 30%;
+  left: 30%;
+  z-index: 3;
+}
+
+.daynight-color-4.night {
+  background-color: #524E7A;
+  width: 55%;
+  left: 45%;
+  z-index: 4;
+}
+
+.daynight-color-1.day {
+  background-color: #72C3FC;
+  width: 55%;
+  left: 0;
+  z-index: 4;
+  transform: .1s ease;
+}
+
+.daynight-color-2.day {
+  background-color: #A6DAFF;
+  width: 30%;
+  left: 40%;
+  z-index: 3;
+  transform: .2s ease;
+}
+
+.daynight-color-3.day {
+  background-color: #C6E7FF;
+  width: 30%;
+  left: 55%;
+  z-index: 2;
+  transform: .3s ease;
+}
+
+.daynight-color-4.day {
+  background-color: #DDF1FF;
+  width: 30%;
+  left: 70%;
+  z-index: 1;
+  transform: .4s ease;
+}
+
+.daynight-button-container:active,
+.daynight-button-container:focus,
+.daynight-button-background:active,
+.daynight-button-background:focus,
+.daynight-button-knob:active,
+.daynight-button-knob:focus,
+.daynight-color:active,
+.daynight-color:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  10% {
+    transform: translateX(35px);
+  }
+
+  20% {
+    transform: translateX(70px);
+  }
+
+  30% {
+    transform: translateX(105px);
+  }
+
+  40% {
+    transform: translateX(140px);
+  }
+
+  50% {
+    transform: translateX(175px);
+  }
+
+  60% {
+    transform: translateX(210px);
+  }
+
+  70% {
+    transform: translateX(245px);
+  }
+
+  80% {
+    transform: translateX(280px);
+  }
+
+  90% {
+    transform: translateX(315px);
+  }
+
+  100% {
+    transform: translateX(350px);
+  }
+}
+
+@keyframes slide-back {
+  0% {
+    transform: translateX(350px);
+  }
+
+  10% {
+    transform: translateX(315px);
+  }
+
+  20% {
+    transform: translateX(280px);
+  }
+
+  30% {
+    transform: translateX(245px);
+  }
+
+  40% {
+    transform: translateX(210px);
+  }
+
+  50% {
+    transform: translateX(175px);
+  }
+
+  60% {
+    transform: translateX(140px);
+  }
+
+  70% {
+    transform: translateX(105px);
+  }
+
+  80% {
+    transform: translateX(70px);
+  }
+
+  90% {
+    transform: translateX(35px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .daynight-button-container {
+    zoom: (0.6);
+
+  }
+}
