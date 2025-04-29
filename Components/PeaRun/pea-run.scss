@@ -1,0 +1,89 @@
+@import '../styles/global-styles.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #292C35;
+  height: 100vh;
+}
+
+.pea-background {
+  @include full-screen;
+  position: relative;
+  background-color: #292C35;
+  margin: 0 auto;
+}
+
+.pea-background img {
+  user-select: none;
+}
+
+.mobile-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+
+}
+
+.mobile-buttons button {
+  padding: 30px;
+  font-size: 18px;
+  background-color: #e792ae;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 75px;
+  user-select: none;
+}
+
+.mobile-buttons button:active {
+  background-color: #a84365;
+}
+
+.faq-message-container {
+  @include flex-center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  width: 40%;
+  background-color: white;
+  border-radius: 25px;
+  padding: 50px;
+  text-align: right;
+  z-index: 100000;
+}
+
+.faq-message-container video {
+  @include flex-center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.faq-message-container button {
+  @include flex-center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  padding: 0;
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: black;
+  cursor: pointer;
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .faq-message-container {
+    width: 90%;
+  }
+}
