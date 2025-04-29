@@ -1,0 +1,153 @@
+@import './pb-global.scss';
+
+html,
+body {
+  overflow-x: hidden !important;
+  background-color: #f3f0ee;
+  margin-top: 30px;
+}
+.pb-breadcrumbs{
+  padding-left: 30px;
+  @media (min-width: 2000px) {
+    padding-left: 230px;
+  }
+}
+/*======================================================== page*/
+.pb-home-page {
+  @include flex-center;
+  flex-direction: column;
+}
+
+/*======================================================== header*/
+.pb-header {
+  @include flex-buttons;
+  background-color: #799944;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 1000;
+}
+
+.pb-header button {
+  @include button;
+}
+
+.pb-home-icon {
+  width: 45px;
+  background-color: rgb(255, 221, 117);
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 50px;
+}
+
+.pb-cart-icon{
+  padding-right: 50px;
+}
+/*======================================================== home menu*/
+.pb-home-content {
+  @include flex-center;
+  flex-direction: column;
+  padding: 0;
+}
+
+.half-circle {
+  @include flex-center;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-53deg);
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+  margin: 150px auto;
+
+  @media (max-width: 800px) {
+    zoom: 0.8;
+    margin: 120px auto;
+  }
+
+}
+
+.letter {
+  @include header;
+  font-size: 2.5rem;
+  position: absolute;
+  transition: transform 0.3s ease-in-out;
+
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      transform: rotate(calc(15deg * #{$i - 1})) translateY(-200px);
+    }
+  }
+}
+
+.pb-logo {
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(255, 221, 117);
+  border-radius: 50%;
+  transform: rotate(50deg);
+  position: relative;
+}
+
+/*cart qty*/
+#pb-shopping-qty {
+  @include flex-center;
+  background-color: rgb(255, 169, 200);
+  border: 2px solid rgb(255, 220, 226);
+  box-sizing: border-box;
+  padding: 2px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10pt;
+  color: black;
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  @media (min-width: 2000px) {
+    right: 240px;
+  }
+
+}
+
+/*======================================================== home links*/
+.pb-links nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 180px;
+  gap: 100px;
+  list-style: none;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  margin-top: -150px;
+
+  @media (max-width: 800px) {
+    gap: 30px;
+    margin-top: -50px;
+  }
+}
+
+.pb-links nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 100;
+  font-size: 2rem;
+  font-family: 'Ultra';
+  transition: color 0.3s ease;
+
+  @media (max-width: 800px) {
+    font-size: 1.3rem;
+  }
+}
+
+.pb-links nav ul li a:hover {
+  color: rgb(156, 0, 83);
+}
+
