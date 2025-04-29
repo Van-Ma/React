@@ -1,0 +1,231 @@
+@import '../styles/global-styles.scss';
+
+@mixin center-item {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
+body {
+  overscroll-behavior: none;
+  overflow: hidden;
+}
+
+.droppable-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.carousel-container {
+  @include flex-center;
+  flex-direction: row;
+  gap: 12px;
+  width: 90%;
+  max-width: 1200px;
+  min-width: 400px;
+  height: 100px;
+  margin: 50px auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  position: relative;
+
+  .arrow {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+
+    &:disabled {
+      opacity: 0.3;
+    }
+
+    &:active {
+      outline: none;
+    }
+  }
+
+  .carousel-view {
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .carousel-track {
+    @include flex-center;
+    gap: 12px;
+    width: 100%;
+    transition: transform 0s ease-in-out;
+  }
+
+}
+
+.snap-item {
+  @include flex-center;
+  aspect-ratio: 1 / 1;
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.snap-container {
+  @include flex-center;
+  @include center-item;
+  position: absolute;
+  flex-direction: column;
+}
+
+.snap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.snap-square {
+  @include flex-center;
+  width: 200px;
+  height: 200px;
+  background-color: #ddd;
+  position: relative;
+  cursor: pointer;
+  border-radius: 0;
+
+  &.occupied {
+    background-color: white;
+  }
+
+  &:hover {
+    background-color: #fff;
+  }
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+
+    &:hover {
+      transform: rotate(0deg) scale(1.1);
+      z-index: 99;
+    }
+  }
+
+  &:nth-child(1) {
+    border-top-left-radius: 25px;
+  }
+
+  &:nth-child(3) {
+    border-top-right-radius: 25px;
+  }
+
+  &:nth-child(7) {
+    border-bottom-left-radius: 25px;
+  }
+
+  &:nth-child(9) {
+    border-bottom-right-radius: 25px;
+  }
+}
+
+// Mobile Styles
+@media (max-width: 500px) {
+  .carousel-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+    min-width: unset;
+    height: auto;
+    margin: 20px auto;
+    width: 90%;
+
+    .arrow {
+      display: none !important;
+    }
+
+    .carousel-view {
+      width: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      display: flex;
+    }
+
+
+    .carousel-track {
+      flex-wrap: nowrap;
+      width: max-content;
+      justify-content: flex-start;
+      background-color: transparent;
+      padding-bottom: 10px;
+      transition: none;
+      padding: 50px 0px 100px;
+    }
+
+
+  }
+
+  .snap-container {
+    position: static;
+    transform: none;
+    width: 100%;
+    align-items: center;
+  }
+
+  .snap-grid {
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .snap-square {
+    width: 100px;
+    height: 100px;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:nth-child(1),
+    &:nth-child(3),
+    &:nth-child(7),
+    &:nth-child(9) {
+      border-radius: 12px;
+    }
+  }
+
+  .snap-item {
+    width: 80px;
+    height: 80px;
+
+    img {
+      width: 100%;
+      max-height: 80px;
+    }
+  }
+}
