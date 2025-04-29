@@ -1,0 +1,178 @@
+@import './pb-global.scss';
+
+.placeorder-page {
+    width: 100%;
+    height: 100vh;
+  
+  }
+  
+  .pb-placeorder-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 125px auto;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    background: #fffaf0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-family: 'Poppins';
+    max-width: 1000px;
+    @media (max-width: 700px){
+      height: 100%;
+      max-height: 100%;
+      margin-top: 80px;
+    }
+    
+  }
+  
+  .pb-placeorder-container h1 {
+    font-family: 'Ultra', serif;
+    font-weight: 100;
+    width: 100%;
+    text-align: left;
+    font-size: 24px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  
+  }
+  
+  .pb-placeorder-item {
+    @include flex-center;
+    border-bottom: 1px dashed #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 100%;
+  }
+  
+  .pb-placeorder-name {
+    flex: 1;
+    text-align: left;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #222;
+    flex-wrap: wrap;
+    max-width: 100px;
+    min-width: 100px;
+    @media (min-width: 1000px){
+      font-size: 1.2rem;
+      max-width: 300px;
+      min-width: 300px;
+    }
+  }
+  
+  .pb-placeorder-qty {
+    @include flex-center;
+    width: 50px;
+    text-wrap: nowrap;
+    text-align: right;
+    font-size: 8pt;
+    font-weight: bold;
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 700px){
+      margin: 5px;
+    }
+    @media (min-width: 1000px){
+      font-size: 1rem;
+    }
+  }
+  
+  .pb-placeorder-item-cost {
+    flex: 0.5;
+    text-align: right;
+    align-items: flex-end;
+    font-size: 8pt;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-right: -10px;
+    @media (min-width: 1000px){
+      font-size: 1rem;
+  
+    }
+  }
+  
+  .pb-placeorder-summary {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #333;
+  }
+  
+  .pb-placeorder-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    text-align: right;
+  }
+  
+  .pb-placeorder-actions {
+    margin-top: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: 700px){
+      margin: 0 auto;
+    }
+  }
+  
+  /*======================================================== edit shopping cart*/
+  
+  .pb-trash-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 15px;
+  }
+  
+  .pb-trash-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .cart-qty-btn {
+    @include flex-center;
+    background-color: pink;
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    color: black;
+    @media (min-width: 1000px){
+      font-size: 2rem;
+      width: 30px;
+      height: 30px;
+      padding: 20px;
+    }
+  }
+  
+  /* delete item modal */
+  .delete-qty-button {
+    font-family: 'Poppins';
+    font-weight: bold;
+    box-sizing: border-box;
+    background-color: #ffb4d6;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 30px;
+    color: black;
+    border-radius: 5px;
+    margin-left: 30px;
+    font-size: 12pt;
+    width: 60px;
+    height: 50px;
+  }
