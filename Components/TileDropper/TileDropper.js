@@ -1,4 +1,4 @@
-import '../styles/tile-dropper.scss';
+import '../styles/carousel.scss';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -6,32 +6,32 @@ import { TouchBackend } from 'react-dnd-touch-backend';
 import deviceInfo from '../utils/Devices';
 const ItemTypes = { OBJECT: 'object' };
 
-  //assets 
-  const snapObjects = [
-    { id: 1, image: '/snap/1.png', alt: 'shrimp', color: '#FFD633' },
-    { id: 2, image: '/snap/2.png', alt: 'watermelon', color: '#0062D1' },
-    { id: 3, image: '/snap/3.png', alt: 'bug', color: '#FF8025' },
-    { id: 4, image: '/snap/4.png', alt: 'tomato', color: '#66CC2F' },
-    { id: 5, image: '/snap/6.png', alt: 'monstera', color: '#FFD633' },
-    { id: 6, image: '/snap/7.png', alt: 'aloe', color: '#FF4433' },
-    { id: 7, image: '/snap/9.png', alt: 'butterfly', color: '#FFD633' },
-    { id: 8, image: '/snap/11.png', alt: 'carrot', color: '#3E0074' },
-    { id: 9, image: '/snap/12.png', alt: 'toad', color: '#FF4433' },
-    { id: 10, image: '/snap/13.png', alt: 'strawberry', color: '#FFD633' },
-    { id: 11, image: '/snap/14.png', alt: 'watercan', color: '#FF4433' },
-    { id: 12, image: '/snap/15.png', alt: 'fish', color: '#0062D1' },
-    { id: 13, image: '/snap/16.png', alt: 'flower', color: '#FF4433' },
-    { id: 14, image: '/snap/17.png', alt: 'cherry', color: '#FFD633' },
-    { id: 15, image: '/snap/18.png', alt: 'sun', color: '#3E0074' },
-    { id: 16, image: '/snap/19.png', alt: 'pot', color: '#0062D1' },
-    { id: 17, image: '/snap/20.png', alt: 'star', color: '#3E0074' },
-    { id: 18, image: '/snap/21.png', alt: 'cat', color: '#FF8025' },
-    { id: 19, image: '/snap/22.png', alt: 'cactus', color: '#FFD633' },
-    { id: 20, image: '/snap/24.png', alt: 'peapod', color: '#FF4433' },
-    { id: 21, image: '/snap/28.png', alt: 'rocketship', color: '#0062D1' },
-    { id: 22, image: '/snap/29.png', alt: 'caterpillar', color: '#FFD633' },
-    { id: 23, image: '/snap/30.png', alt: 'dog', color: '#3E0074' },
-  ];
+//assets 
+const snapObjects = [
+  { id: 1, image: '/snap/1.png', alt: 'shrimp', color: '#FFD633' },
+  { id: 2, image: '/snap/2.png', alt: 'watermelon', color: '#0062D1' },
+  { id: 3, image: '/snap/3.png', alt: 'bug', color: '#FF8025' },
+  { id: 4, image: '/snap/4.png', alt: 'tomato', color: '#66CC2F' },
+  { id: 5, image: '/snap/6.png', alt: 'monstera', color: '#FFD633' },
+  { id: 6, image: '/snap/7.png', alt: 'aloe', color: '#FF4433' },
+  { id: 7, image: '/snap/9.png', alt: 'butterfly', color: '#FFD633' },
+  { id: 8, image: '/snap/11.png', alt: 'carrot', color: '#3E0074' },
+  { id: 9, image: '/snap/12.png', alt: 'toad', color: '#FF4433' },
+  { id: 10, image: '/snap/13.png', alt: 'strawberry', color: '#FFD633' },
+  { id: 11, image: '/snap/14.png', alt: 'watercan', color: '#FF4433' },
+  { id: 12, image: '/snap/15.png', alt: 'fish', color: '#0062D1' },
+  { id: 13, image: '/snap/16.png', alt: 'flower', color: '#FF4433' },
+  { id: 14, image: '/snap/17.png', alt: 'cherry', color: '#FFD633' },
+  { id: 15, image: '/snap/18.png', alt: 'sun', color: '#3E0074' },
+  { id: 16, image: '/snap/19.png', alt: 'pot', color: '#0062D1' },
+  { id: 17, image: '/snap/20.png', alt: 'star', color: '#3E0074' },
+  { id: 18, image: '/snap/21.png', alt: 'cat', color: '#FF8025' },
+  { id: 19, image: '/snap/22.png', alt: 'cactus', color: '#FFD633' },
+  { id: 20, image: '/snap/24.png', alt: 'peapod', color: '#FF4433' },
+  { id: 21, image: '/snap/28.png', alt: 'rocketship', color: '#0062D1' },
+  { id: 22, image: '/snap/29.png', alt: 'caterpillar', color: '#FFD633' },
+  { id: 23, image: '/snap/30.png', alt: 'dog', color: '#3E0074' },
+];
 
 
 const DraggableObject = ({ id, image, alt, color, onDragEnd, idMatch }) => {
@@ -99,7 +99,7 @@ const DroppableSquare = ({ row, col, onDrop, objectId }) => {
 const DroppableArea = ({ onDrop }) => {
   const [, drop] = useDrop(() => ({
     accept: ItemTypes.OBJECT,
-    drop: (item) => onDrop(-1, -1, item.id), 
+    drop: (item) => onDrop(-1, -1, item.id),
   }));
 
   return <div ref={drop} className="droppable-area" />;
@@ -164,8 +164,8 @@ function Carousel() {
           // If the dropped item already had a previous position, swap the IDs
           const { [itemAtNewPosition]: removedItem, ...updatedPositions } = newPositions;
 
-          updatedPositions[itemAtNewPosition] = previousPosition; 
-          updatedPositions[id] = { row, col }; 
+          updatedPositions[itemAtNewPosition] = previousPosition;
+          updatedPositions[id] = { row, col };
 
           return updatedPositions;
         } else {
@@ -183,36 +183,36 @@ function Carousel() {
     });
   };
 
-//carousel view 
-useEffect(() => {
-  const update = () => {
-    setSmallDevice(window.innerWidth < 500);
+  //carousel view 
+  useEffect(() => {
+    const update = () => {
+      setSmallDevice(window.innerWidth < 500);
 
-    if (window.innerWidth < 600) setVisibleCount(5);
-    else if (window.innerWidth < 900) setVisibleCount(5);
-    else setVisibleCount(8);
-  };
+      if (window.innerWidth < 600) setVisibleCount(5);
+      else if (window.innerWidth < 900) setVisibleCount(5);
+      else setVisibleCount(8);
+    };
 
-  window.addEventListener('resize', update);
-  update();
+    window.addEventListener('resize', update);
+    update();
 
-  // Preload images with cleanup
-  const preloadedImages = [];
+    // Preload images with cleanup
+    const preloadedImages = [];
 
-  snapObjects.forEach((obj) => {
-    const img = new Image();
-    img.src = obj.image;
-    preloadedImages.push(img);
-  });
-
-  return () => {
-    window.removeEventListener('resize', update);
-    // Clean up preloaded images
-    preloadedImages.forEach(img => {
-      img.src = '';
+    snapObjects.forEach((obj) => {
+      const img = new Image();
+      img.src = obj.image;
+      preloadedImages.push(img);
     });
-  };
-}, []);
+
+    return () => {
+      window.removeEventListener('resize', update);
+      // Clean up preloaded images
+      preloadedImages.forEach(img => {
+        img.src = '';
+      });
+    };
+  }, []);
 
   //arrow buttons
   const handlePrev = () => {
@@ -232,7 +232,7 @@ useEffect(() => {
     if (!smallDevice && carouselRef.current && carouselRef.current.children.length > 0) {
       const firstItem = carouselRef.current.children[0];
       const itemWidth = firstItem.getBoundingClientRect().width;
-      const gap = 5; // Adjust if needed
+      const gap = 5;
       carouselRef.current.scrollTo({
         left: startIndex * (itemWidth + gap),
         behavior: 'smooth',
@@ -283,7 +283,7 @@ useEffect(() => {
             </div>
 
           </div>
-          {/*aroow buttons*/}
+          {/*arrow buttons*/}
           <button
             className="arrow right"
             onClick={handleNext}
