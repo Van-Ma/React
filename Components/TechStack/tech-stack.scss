@@ -1,0 +1,37 @@
+.techstack-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0px auto 100px;
+  z-index: 2;
+}
+
+.tech-img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  margin-top: 30px;
+  background-color: black;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.center-img {
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  z-index: 2;
+}
+
+// circle layout 
+@for $i from 2 through 10 {
+  .tech-img:nth-child(#{$i}) {
+    $angle: 360deg / 9 * ($i - 2);
+    $radius: 70%;
+    left: 50% + $radius * cos($angle);
+    top: 50% + $radius * sin($angle);
+  }
+}
