@@ -1,4 +1,4 @@
-import '../styles/carousel.scss';
+import '../styles/tile-dropper.scss';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -105,7 +105,7 @@ const DroppableArea = ({ onDrop }) => {
   return <div ref={drop} className="droppable-area" />;
 };
 
-function Carousel() {
+function TileDropper() {
   const [visibleCount, setVisibleCount] = useState(8);
   const [startIndex, setStartIndex] = useState(0);
   const [smallDevice, setSmallDevice] = useState(window.innerWidth < 500);
@@ -305,4 +305,4 @@ function Carousel() {
 
 }
 
-export default Carousel;
+export default TileDropper;
